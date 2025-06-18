@@ -1,0 +1,57 @@
+CREATE DATABASE diary_app DEFAULT CHARSET=utf8mb4;
+USE diary_app;
+
+//日報テーブル
+CREATE TABLE diaries (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  content TEXT NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+//ユーザー登録システム
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,       
+    username VARCHAR(50) NOT NULL UNIQUE,    
+    password VARCHAR(255) NOT NULL,      
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
+);
+
+//天気予報テーブル
+CREATE TABLE weather_data (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    min_temp DECIMAL(5,2),
+    max_temp DECIMAL(5,2),
+    weather VARCHAR(50),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
+);
+
+//日経平均テーブル
+CREATE TABLE nikkei_index (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  index_value DECIMAL(10,2) NOT NULL,
+  change_percent DECIMAL(5,2) NOT NULL,
+  timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+//為替テーブル
+CREATE TABLE exchange_rates (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  usd_to_jpy DECIMAL(8,2) NOT NULL,
+  timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+//ニューステーブル
+CREATE TABLE news_top (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  image TEXT NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  url VARCHAR(2083) NOT NULL,
+  timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+
+
+
+
+
